@@ -7,9 +7,36 @@
     "start": "node index.js",
     "test": "jest --verbose",
     "test:watch": "jest --watchAll",
-    "dev": "nodemon index.js"
+    "dev": "nodemon index.js",
+    "commit": "git-cz",
+    "release": "standard-version",
+    "release:tags": "git push --follow-tags origin main"
   },
+  "keywords": [
+    "node",
+    "sequelize",
+    "express",
+    "MySQL",
+    "Postgresql",
+    "backend",
+    "es6",
+    "javascript",
+    "webdev"
+  ],
   "author": "xRdev38",
+  "config": {
+    "commitizen": {
+      "path": "cz-conventional-changelog",
+      "disableScopeLowerCase": false,
+      "disableSubjectLowerCase": false,
+      "pre-commit": "lint-staged"
+    }
+  },
+  "husky": {
+    "hooks": {
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+    }
+  },
   "license": "ISC",
   "dependencies": {
     "algoliasearch": "^4.13.0",
@@ -36,6 +63,9 @@
     "eslint-plugin-import": "^2.14.0",
     "jest": "^24.3.1",
     "nodemon": "^2.0.7",
-    "supertest": "^6.2.1"
+    "standard-version": "^9.3.2",
+    "supertest": "^6.2.1",
+    "commitizen": "^4.2.4",
+    "husky": "^7.0.4"
   }
 }
